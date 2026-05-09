@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل الفعالية</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold text-white">
+دليل الفعاليات
+</a>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">الصفحة الرئيسية</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="events.html">الفعاليات</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">عن الموقع</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">تواصل معنا</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+
+        <h2 id="eventTitle"></h2>
+
+        <img id="eventImage" class="img-fluid rounded shadow" style="max-height:500px;width:100%;object-fit:cover;">
+
+        <p class="mt-4 fs-5" id="eventDesc"></p>
+
+        <p>
+            <strong>التاريخ:</strong>
+            <span id="eventDate"></span>
+        </p>
+
+        <p>
+            <strong>المكان:</strong>
+            <span id="eventPlace"></span>
+        </p>
+
+        <button class="btn btn-success">
+أضف للتقويم
+</button>
+
+        <button class="btn btn-primary">
+مشاركة
+</button>
+
+    </div>
+
+
+
+    <footer class="footer mt-5">
+        <p>
+            (Sarah Alaya Sarah_220371)
+        </p>
+    </footer>
+
+
+    <script>
+        const eventsData = {
+
+            1: {
+                title: "حفلات غنائية و DJ",
+                image: "images/musical.jfif",
+                desc: "حفلة تضم أشهر الفنانين العرب و الأجانب.",
+                date: "15 مايو 2026",
+                place: "دمشق - ساحة الأمويين"
+            },
+
+            2: {
+                title: "فعالية رياضية",
+                image: "images/sport.jpg",
+                desc: "بطولة رياضية مميزة مع عدة نشاطات.",
+                date: "20 مايو 2026",
+                place: "حلب"
+            },
+
+            3: {
+                title: "معرض الكتاب",
+                image: "images/thaq.jpg",
+                desc: "تعرف على أشهر الروايات و الكتب.",
+                date: "1 يونيو 2026",
+                place: "حمص"
+            },
+
+            4: {
+                title: "مباراة كرة القدم",
+                image: "images/sports.jfif",
+                desc: "مباراة كرة قدم بإشراف لاعبين سوريين مشاهير.",
+                date: "10 يونيو 2026",
+                place: "دمشق - ملعب الفيحاء"
+            },
+            5: {
+                title: "مسابقة المعلوماتية",
+                image: "images/it.jpg",
+                desc: "تحدي البرمجة و الأمن السيبراني.",
+                date: "10 يونيو 2026",
+                place: "دمشق"
+            },
+            6: {
+                title: "المتحف الوطني",
+                image: "images/mus.jpg",
+                desc: "استكشف المتحف الوطني و عراقة تاريخ سوريا.",
+                date: "10 يونيو 2026",
+                place: "دمشق - المتحف الوطني"
+            }
+        
+            
+
+        };
+        
+
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const id = params.get("id");
+
+
+        if (eventsData[id]) {
+
+            document.getElementById("eventTitle").innerText =
+                eventsData[id].title;
+
+            document.getElementById("eventImage").src =
+                eventsData[id].image;
+
+            document.getElementById("eventDesc").innerText =
+                eventsData[id].desc;
+
+            document.getElementById("eventDate").innerText =
+                eventsData[id].date;
+
+            document.getElementById("eventPlace").innerText =
+                eventsData[id].place;
+
+        } else {
+
+            document.getElementById("eventTitle").innerText =
+                "الفعالية غير موجودة";
+
+        }
+    </script>
+
+</body>
+
+</html>
